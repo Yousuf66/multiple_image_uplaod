@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function validateForm() {
+          var x = document.forms["myForm"]["name"].value;
+          if (x == "") {
+            alert("Name must be filled out");
+            return false;
+          }
+        }
+        </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='footer.css') }}">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Project1</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        User
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ url_for('LoginUser') }}">Login</a>
+                        <!-- <a class="dropdown-item" href="#">Sign Up</a> -->
+                        <!-- <div class="dropdown-divider"></div> -->
+                      </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ url_for('LoginAdmin') }}">Login</a>
+                        <!-- <a class="dropdown-item" href="#">Sign Up</a> -->
+                        <!-- <div class="dropdown-divider"></div> -->
+                      </div>
+                    </li>
+                  </ul>
+                  <!-- 
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form> -->
+                </div>
+</nav>
+              
+ 
+  <div class="container ">
+    <!-- Default form contact -->
+<form id='sus-upload' name="myForm" onsubmit="return validateForm()" enctype="multipart/form-data" method="POST">
+  <p class="h4 mb-4">Suspect Info</p>
+
+  <!-- Name -->
+  <input type="text" id="defaultContactFormName" name="name" class="form-control mb-4" placeholder="Name">
+
+  <!-- Id -->
+  <input type="text" id="suspect_id" name="id" class="form-control mb-4" placeholder="Enter id">
+  <!-- Message -->
+  <div class="form-group">
+      <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" name="message" rows="3" placeholder="Message"></textarea>
+  </div>
+
+  <!-- Copy -->
+  <div class="custom-control custom-checkbox mb-4">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupFileAddon01" >Upload</span>
+      </div>
+      <!-- image Upload -->
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" accept="image/*" id="sus-img" name="img"  multiple>
+        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+      </div>
+    </div>
+  </div>
+
+  
+</form>
+<!-- Default form contact -->
+<!-- Send button -->
+<button class="btn btn-info btn-block" onclick='fileInput()' >Send</button>
+
+  </div>
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+
+
+
+<footer class="footer">
+                    <div class="container text-center">
+                      <span class="text-primary">Created By Team 1</span>
+                      <br>
+                    </div>
+  </footer>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="app.js"></script>
+</body>
+</html>
